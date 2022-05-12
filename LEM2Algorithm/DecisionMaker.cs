@@ -139,8 +139,8 @@ namespace LEM2Algorithm
 
             //mutating
             T.Add(t);
-            //G.IntersectWith(Block(t));
-            G = Subtract(G, Block(t));
+            G.IntersectWith(Block(t)); // THIS IS CHANGE FROM THE SOURCE
+            //G = Subtract(G, Block(t));
             TG = GenerateTG(G);
             TG = Subtract(TG, T);
         }
