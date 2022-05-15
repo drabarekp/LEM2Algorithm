@@ -20,9 +20,14 @@ namespace LEM2Algorithm
                 { "high", "no", "no", "no"},
                 {"normal", "no", "yes", "no" },
             };
+            string[] decisions = new string[] { "yes", "yes", "no", "yes", "yes", "no", "no" };
 
-            var matrix = new DecisionMatrix(attributes, values);
-            var dm = new DecisionMaker(matrix);
+            var matrix = new DecisionMatrix(attributes, values, decisions);
+
+            var reduct = new ReductFinder(matrix);
+            var reducedMatrix = reduct.Johnson();
+
+            var dm = new DecisionMaker(reducedMatrix);
             var result = dm.LEM2(new System.Collections.Generic.HashSet<int>(new int[] {0, 1, 3, 4}));
             Console.WriteLine(result);
         }

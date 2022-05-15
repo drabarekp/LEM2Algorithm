@@ -11,9 +11,9 @@ namespace LEM2Algorithm
     internal class DecisionMaker
     {
 
-        private DecisionMatrix pairs;
+        private InformationMatrix pairs;
 
-        public DecisionMaker(DecisionMatrix pairs)
+        public DecisionMaker(InformationMatrix pairs)
         {
             this.pairs = pairs;
         }
