@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LEM2Algorithm.Models
 {
-    internal struct AttributeValuePair
+    public struct AttributeValuePair
     {
         public int attribute;
         public string value;
@@ -15,6 +15,11 @@ namespace LEM2Algorithm.Models
         {
             this.attribute = attribute;
             this.value = value;
+        }
+
+        public override string ToString()
+        {
+            return $"({attribute}, {value})";
         }
     }
 }

@@ -8,7 +8,7 @@ using LEM2Algorithm.Utils;
 
 namespace LEM2Algorithm
 {
-    internal class DecisionMaker
+    public class DecisionMaker
     {
 
         private DecisionMatrix pairs;
@@ -139,8 +139,8 @@ namespace LEM2Algorithm
 
             //mutating
             T.Add(t);
-            G.IntersectWith(Block(t)); // THIS IS CHANGE FROM THE SOURCE
-            //G = Subtract(G, Block(t));
+            G.IntersectWith(Block(t));
+            //G = Subtract(G, Block(t)); // THIS IS CHANGE FROM THE SOURCE
             TG = GenerateTG(G);
             TG = Subtract(TG, T);
         }

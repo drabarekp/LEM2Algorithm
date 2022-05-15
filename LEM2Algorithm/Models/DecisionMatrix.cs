@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LEM2Algorithm.Models
 {
-    internal class DecisionMatrix
+    public class DecisionMatrix
     {
         public readonly int dataRowsNumber;
         public readonly int attributesNumber;
