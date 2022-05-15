@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LEM2Algorithm.Utils
 {
-    internal class HashSetComparer<T> : IEqualityComparer<HashSet<T>>
+    public class HashSetComparer<T> : IEqualityComparer<HashSet<T>>
     {
         public bool Equals(HashSet<T> x, HashSet<T> y)
         {

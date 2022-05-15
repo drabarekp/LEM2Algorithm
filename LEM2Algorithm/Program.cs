@@ -1,5 +1,7 @@
 ﻿using System;
 using LEM2Algorithm.Models;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace LEM2Algorithm
 {
@@ -24,12 +26,30 @@ namespace LEM2Algorithm
 
             var matrix = new DecisionMatrix(attributes, values, decisions);
 
-            var reduct = new ReductFinder(matrix);
-            var reducedMatrix = reduct.Johnson();
+            var matrix = new DecisionMatrix(attributes, values);
+            var dm = new DecisionMaker(matrix);
+            var result = dm.LEM2(new HashSet<int>(new int[] {0, 1, 3, 4}));
+            PrintHashSet(result);
+        }
 
-            var dm = new DecisionMaker(reducedMatrix);
-            var result = dm.LEM2(new System.Collections.Generic.HashSet<int>(new int[] {0, 1, 3, 4}));
-            Console.WriteLine(result);
+        static void PrintHashSet(IEnumerable hashobj)
+        {
+            Console.Write("{");
+
+            foreach (var el in hashobj)
+            {
+                var enumel = el as IEnumerable;
+                if (enumel is not null)
+                    PrintHashSet(enumel);
+                else
+                    PrintHashSet(el);
+            }
+
+            Console.Write("}"); 
+        }
+        static void PrintHashSet(object obj)
+        {
+            Console.Write(obj);
         }
     }
 }
