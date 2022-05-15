@@ -26,7 +26,10 @@ namespace LEM2Algorithm
 
             var matrix = new DecisionMatrix(attributes, values, decisions);
 
-            var matrix = new DecisionMatrix(attributes, values);
+            var reduct = new ReductFinder(matrix);
+
+            var reducedMatrix = reduct.Johnson();
+
             var dm = new DecisionMaker(matrix);
             var result = dm.LEM2(new HashSet<int>(new int[] {0, 1, 3, 4}));
             PrintHashSet(result);
